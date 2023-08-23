@@ -2,16 +2,13 @@ package hello_world;
 
 import java.util.Scanner;
 
-public class ReverseOfArray {
-static void reverseArray(int a[],int N,int i) {
-	if(i>=N/2) { 
-		return;
+public class RotateAnArray {
+static void rotateArrayByOnePosition(int a[],int N) {
+	int temp=a[0],i;
+	for(i=1;i<N;i++) {
+		a[i-1]=a[i];
 	}
-	int temp = a[i];
-    a[i] = a[N - i - 1];
-    a[N - i - 1] = temp;
-	reverseArray(a,N,(i+1));  
-
+	a[i-1]=temp;
 	
 }
 	public static void main(String[] args) {
@@ -24,11 +21,14 @@ static void reverseArray(int a[],int N,int i) {
 			
 			a[i]=sc.nextInt();
 		}
-		reverseArray(a,N,0);
+		rotateArrayByOnePosition(a,N);
 		  System.out.println("Reversed Array:");
 	        for (int i = 0; i < N; i++) {
 	            System.out.print(a[i] + " ");
 	        }
+	
+
+
 	}
 
 }
